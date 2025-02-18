@@ -1,10 +1,4 @@
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
@@ -23,26 +17,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={outfit.className}>
-          {/* SignedOut durumunda kullanıcıya giriş yapma butonu */}
-          <SignedOut>
-            <div className="flex justify-center items-center h-screen">
-              <SignInButton />
-            </div>
-          </SignedOut>
-          {/* SignedIn durumunda kullanıcı butonu */}
-          <SignedIn
-            appearance={{
-              elements: {
-                button: "w-full flex flex-col gap-2", // Tailwind sınıfları ekle
-              },
-            }}
-          >
-            <header className="flex justify-between items-center p-4">
-              <h1 className="text-xl font-bold">Welcome to the App</h1>
-              <UserButton />
-            </header>
-            <Provider>{children}</Provider>
-          </SignedIn>
+          <Provider>{children}</Provider>
         </body>
       </html>
     </ClerkProvider>

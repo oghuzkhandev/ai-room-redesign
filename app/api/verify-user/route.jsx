@@ -1,29 +1,32 @@
 import { NextResponse } from "next/server";
-import { db } from "@/config/db";
-import { Users } from "@/config/schema";
+import { Users } from "../../../config/schema";
 import { eq } from "drizzle-orm";
+import { db } from "../../../config/db";
 
 export async function POST(req) {
   const { user } = await req.json();
 
   try {
+    console.log("Received user:", user);
     const userInfo = await db
       .select()
       .from(Users)
-      .where(eq(Users.email, user?.primaryEmailAdress.emailAddress));
+      .where(eq(Users.email, user?.primaryEmailAddress.emailAddress));
     console.log("User Info :", userInfo);
-    if (userInfo?.length === 0) {
-      const newUser = await db
+
+    if (userInfo?.length == 0) {
+      const SaveResult = await db
         .insert(Users)
         .values({
           name: user?.fullName,
-          email: user?.primaryEmailAdress.emailAddress,
+          email: user?.primaryEmailAddress.emailAddress,
           imageUrl: user?.imageUrl,
         })
-        .returning({ id: Users.id });
-        return NextResponse.json(newUser);
+        .returning({ Users });
+      return NextResponse.json({ Result: SaveResult[0] });
     }
+    return NextResponse.json({ Result: userInfo });
   } catch (error) {
-    console.error(error);
+    return NextResponse.json({ Error: error });
   }
 }
