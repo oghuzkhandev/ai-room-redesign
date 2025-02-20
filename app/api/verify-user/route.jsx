@@ -8,25 +8,34 @@ export async function POST(req) {
 
   try {
     console.log("Received user:", user);
+
+    const email = user?.primaryEmailAddress?.emailAddress || user?.email;
+    if (!email) {
+      return NextResponse.json({ Error: "Email is required." });
+    }
+
     const userInfo = await db
       .select()
       .from(Users)
-      .where(eq(Users.email, user?.primaryEmailAddress.emailAddress));
-    console.log("User Info :", userInfo);
+      .where(eq(Users.email, email));
 
-    if (userInfo?.length == 0) {
+    console.log("User Info:", userInfo);
+
+    if (userInfo?.length === 0) {
       const SaveResult = await db
         .insert(Users)
         .values({
-          name: user?.fullName,
-          email: user?.primaryEmailAddress.emailAddress,
-          imageUrl: user?.imageUrl,
+          name: user?.fullName || "Unknown",
+          email: email,
+          imageUrl: user?.imageUrl || "",
         })
         .returning({ Users });
+
       return NextResponse.json({ Result: SaveResult[0] });
     }
-    return NextResponse.json({ Result: userInfo });
+    return NextResponse.json({ Result: userInfo[0] });
   } catch (error) {
-    return NextResponse.json({ Error: error });
+    console.error("Error in API:", error);
+    return NextResponse.json({ Error: error.message || "An error occurred." });
   }
 }
