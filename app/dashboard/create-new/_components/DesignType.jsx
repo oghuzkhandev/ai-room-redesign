@@ -55,7 +55,7 @@ function DesignType({ selectedDesignType }) {
               width={200}
               height={200}
               className={`object-cover h-[120px] w-[180px] rounded-md hover:scale-110 transition-all cursor-pointer ${
-                design.name == selectedDesign ? "border-2 border-red-300 shadow-lg shadow-red-300 " : ""
+                design.name == selectedDesign ? "border-[3px] border-purple-400 shadow-md shadow-purple-400 " : ""
               }`}
             />
           </div>

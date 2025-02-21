@@ -1,4 +1,4 @@
-import { integer, pgTable, varchar, serial, text } from "drizzle-orm/pg-core";
+import { integer, pgTable, varchar, serial, text, timestamp, numeric } from "drizzle-orm/pg-core";
 
 export const Users = pgTable("users", {
   id: serial("id").primaryKey(),
@@ -35,3 +35,11 @@ export const Favorites = pgTable("favorites", {
     .references(() => AiGeneratedImage.id, { onDelete: "CASCADE" }),
 });
 
+export const Payments = pgTable("payments", {
+  id: serial("id").primaryKey(),
+  userEmail: varchar("user_email").notNull(),
+  creditsPurchased: integer("credits_purchased").notNull(),
+  amountPaid: numeric("amount_paid", { precision: 10, scale: 2 }).notNull(),
+  status: varchar("status").default("pending"),
+  createdAt: timestamp("created_at").defaultNow(),
+});

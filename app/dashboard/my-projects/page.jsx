@@ -7,10 +7,12 @@ import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
 import { eq, and } from "drizzle-orm";
 import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function MyProjects() {
   const { user } = useUser();
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
@@ -19,6 +21,7 @@ function MyProjects() {
   }, [user]);
 
   const getMyProjects = async () => {
+    setLoading(true);
     try {
       const rooms = await db
         .select({
@@ -69,6 +72,7 @@ function MyProjects() {
     } catch (error) {
       console.error("Error fetching projects:", error);
     }
+    setLoading(false);
   };
 
   const toggleFavorite = async (roomId, isCurrentlyFavorite) => {
@@ -132,7 +136,13 @@ function MyProjects() {
         Your Created Rooms
       </h1>
 
-      {projects.length === 0 ? (
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+          {[...Array(9)].map((_, index) => (
+            <Skeleton key={index} className="w-full h-[200px] rounded-lg" />
+          ))}
+        </div>
+      ) : projects.length === 0 ? (
         <p>You have not created any rooms yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">

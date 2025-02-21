@@ -13,14 +13,26 @@ import AiOutputDialog from "../_components/AiOutputDialog";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserDetailContext } from "../../_context/UserDetailContext";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import CustomLoading from "../_components/CustomLoading";
 
 function CreateNew() {
   const [aiOutputImage, setAiOutputImage] = useState("");
   const [openOutputDialog, setOpenOutputDialog] = useState(false);
   const { user } = useUser();
   const [formData, setFormData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [orgImage, setOrgImage] = useState();
+  const [loading, setLoading ] = useState(false);
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
 
   const onHandleInputChange = (value, fieldName) => {
@@ -77,7 +89,7 @@ function CreateNew() {
       return;
     }
 
-    setIsLoading(true);
+    setLoading(true);
 
     try {
       const rawImageUrl = await SaveRawImageToFirebase();
@@ -88,7 +100,7 @@ function CreateNew() {
         additionalReq: formData?.additionalReq,
         userEmail: user?.primaryEmailAddress.emailAddress,
       });
-
+      setLoading(false);
       console.log(result.data);
       setAiOutputImage(result.data.result);
       setOpenOutputDialog(true);
@@ -110,7 +122,7 @@ function CreateNew() {
         style: customToastStyle,
       });
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
@@ -159,30 +171,30 @@ function CreateNew() {
           />
         </div>
       </div>
-      <Button
-        variant="outline"
-        className="w-full mt-[80px] text-semibold text-[15px] text-white hover:text-[#439ecb] active:text-[18px]"
-        onClick={() => {
-          setIsLoading(true);
-          setTimeout(() => {
-            setIsLoading(false);
-            GenerateAiImage();
-          }, 3000);
-        }}
-      >
-        {isLoading ? (
-          <div className="flex items-center justify-between">
-            <span>Generate the Design</span>
-            <img
-              src="/sketch.png"
-              alt="loading"
-              className="w-5 h-5 animate-spin ml-5"
-            />
-          </div>
-        ) : (
-          "Generate the Design"
-        )}
-      </Button>
+      <AlertDialog >
+        <AlertDialogTrigger asChild>
+          <Button
+            variant="outline"
+            className="w-full mt-[80px] text-semibold text-[15px] text-white hover:text-[#439ecb] active:text-[18px]"
+          >
+            Generate the Design
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-center font-bold">Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription className="text-md text-gray-600">
+            After the design is Created, 1 Credit will be consumed ! Do you want to proceed?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="mr-3" >Cancel</AlertDialogCancel>
+            <AlertDialogAction className="bg-destructive text-destructive-foreground hover:shadow-lg hover:shadow-destructive hover:text-destructive hover:bg-destructive-foreground hover:border hover:border-destructive" onClick={GenerateAiImage}>
+              Yes, Continue
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       <p className="mt-3 underline underline-offset-2 text-bold text-lg text-slate-600 text-center">
         NOTE: After the design is Created, 1 Credit will be consumed !{" "}
       </p>
@@ -192,6 +204,7 @@ function CreateNew() {
         orgImage={orgImage}
         aiImage={aiOutputImage}
       />
+      <CustomLoading loading={loading} />
       <ToastContainer className="h-[200px] rounded-lg text-semibold" />
     </div>
   );

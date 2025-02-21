@@ -17,7 +17,6 @@ import {
 
 function Header() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
-  console.log("UserDetail from context:", userDetail);
 
   return (
     <div className="flex justify-between items-center p-5 shadow-xl max-h-[110px]">
@@ -134,15 +133,15 @@ function Header() {
             Buy More Credits
           </Button>
         </Link>
-        <div className="flex items-center gap-3 py-1 bg-blue-100 rounded-lg w-[180px] text-[14px] border-2 border-blue-200">
+        <div className="flex items-center gap-3 py-1 bg-blue-200 rounded-lg w-[200px] text-[15px] border-2 border-blue-400">
           <Image
-            src="/contactless.png"
+            src="/dollar.png"
             alt="credit"
             width={30}
             height={30}
             style={{ marginLeft: "5px" }}
           />
-          <div className="font-semibold">
+          <div className="font-bold">
             {userDetail?.credits > 0 ? (
               `You Have ${userDetail.credits} Credits`
             ) : (

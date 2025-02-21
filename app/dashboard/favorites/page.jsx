@@ -7,6 +7,7 @@ import { eq, and } from "drizzle-orm";
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
 import Image from "next/image";
+import { toast } from "sonner";
 
 function FavoritesList() {
   const { user } = useUser();
@@ -61,10 +62,24 @@ function FavoritesList() {
               eq(Favorites.userEmail, user?.primaryEmailAddress?.emailAddress)
             )
           );
+        toast("Removed from Favorites", {
+          description: "You have removed this room from your favorites.",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo Favorite Action"),
+          },
+        });
       } else {
         await db.insert(Favorites).values({
           userEmail: user?.primaryEmailAddress?.emailAddress,
           imageId: roomId,
+        });
+        toast("Added to Favorites", {
+          description: "This room has been added to your favorites.",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo Add Action"),
+          },
         });
       }
 
