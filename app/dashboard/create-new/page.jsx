@@ -195,7 +195,7 @@ function CreateNew() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-      <p className="mt-3 underline underline-offset-2 text-bold text-lg text-slate-600 text-center">
+      <p className="mt-3 underline underline-offset-2 text-bold text-lg text-slate-600 text-center mb-20">
         NOTE: After the design is Created, 1 Credit will be consumed !{" "}
       </p>
       <AiOutputDialog

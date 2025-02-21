@@ -24,7 +24,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from "embla-carousel-autoplay";
 
 function Listing() {
   const { user } = useUser();
@@ -113,7 +113,7 @@ function Listing() {
         <h3 className="text-center text-3xl font-bold text-gray-600 underline underline-offset-8 mt-20">
           AI Room Design Examples
         </h3>
-        <div className=" mt-10 w-2/3">
+        <div className=" mt-10 w-3/3 md:w-3/3 lg:w-3/3 xl:w-2/3">
           <Carousel
             className="mt-10"
             opts={{
@@ -176,27 +176,26 @@ function Listing() {
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
           <div className="relative flex items-center justify-center flex-col text-white">
-            <h2 className="font-bold text-3xl">
+            <h2 className="font-bold text-xl md:text-2xl lg:text-3xl">
               Create New AI Interior Design for Your Room
             </h2>
             <Link href="/dashboard/create-new">
-              <Button className="mt-10 w-[225px] h-[50px] text-md font-bold">
+              <Button className="mt-10 w-[200px] h-[40px] lg:w-[225px] lg:h-[45px] text-md md:font-semibold lg:font-bold text-center">
                 Redesign your Room
               </Button>
             </Link>
           </div>
-          <div className="absolute bottom-[-5%] flex items-center justify-center">
-            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10 w-2/3">
-              <Card className="bg-red-200 bg-opacity-90 rounded-lg p-2 shadow-lg">
+          <div className="container absolute bottom-[-5%] flex items-center justify-center">
+            <div className="relative hidden lg:grid grid-cols-3 gap-4 lg:gap-6 xl:gap-8 w-full px-4">
+              <Card className="bg-red-200 bg-opacity-90 rounded-lg p-4 shadow-lg">
                 <CardHeader className="flex items-center">
                   <Image
                     src="/high-quality.png"
                     alt="quality"
                     width={50}
                     height={50}
-                    className=""
                   />
-                  <CardTitle className="text-xl font-semibold text-gray-900">
+                  <CardTitle className="text-xl font-semibold text-gray-900 ml-2">
                     Maximum Quality
                   </CardTitle>
                 </CardHeader>
@@ -208,16 +207,15 @@ function Listing() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-200 bg-opacity-90 rounded-lg p-2 shadow-lg">
+              <Card className="bg-blue-200 bg-opacity-90 rounded-lg p-4 shadow-lg">
                 <CardHeader className="flex items-center text-center">
                   <Image
                     src="/feedback.png"
                     alt="Upload Room"
                     width={50}
                     height={50}
-                    className=""
                   />
-                  <CardTitle className="text-xl font-semibold text-gray-900">
+                  <CardTitle className="text-xl font-semibold text-gray-900 ml-2">
                     Transform Your Space Instantly
                   </CardTitle>
                 </CardHeader>
@@ -229,16 +227,15 @@ function Listing() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-yellow-200 bg-opacity-90 rounded-lg p-2 shadow-lg">
+              <Card className="bg-yellow-200 bg-opacity-90 rounded-lg p-4 shadow-lg">
                 <CardHeader className="flex items-center gap-2">
                   <Image
                     src="/personalized.png"
                     alt="quality"
                     width={50}
                     height={50}
-                    className=""
                   />
-                  <CardTitle className="text-xl font-semibold text-gray-900">
+                  <CardTitle className="text-xl font-semibold text-gray-900 ml-2">
                     Personalized for You
                   </CardTitle>
                 </CardHeader>

@@ -5,22 +5,28 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-10 px-8">
       <div className="flex items-center justify-between">
-        <div className="flex flex-col items-center md:items-start">
-          <div className="flex items-center space-x-2">
-            <Image src="/logo.png" alt="Logo" width={200} height={150} />
-            <p className="text-lg text-white">
-              Innovative Interior Redesign
+        <div className="flex items-center md:items-start">
+          <div className="flex flex-col items-center">
+            <p className="text-md text-white">Innovative Interior Redesign</p>
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={200}
+              height={100}
+              className="w-[150px] md:w-[200px] lg:w-[250px] object-contain"
+            />
+            <p className="text-gray-400 text-[15px]">
+              Revolutionizing the way you design your spaces with AI-powered
+              solutions.
             </p>
           </div>
-          <p className="text-gray-400 text-[15px]">
-            Revolutionizing the way you design your spaces with AI-powered
-            solutions.
-          </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center mr-32">
-          <h3 className="text-gold text-xl font-semibold text-center mb-10">Quick Links</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="flex flex-col items-center mr-10 lg:mr-32 space-y-10">
+          <h3 className="text-gold text-lg md:text-xl font-semibold">
+            Quick Links
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-10">
             <a
               href="/dashboard"
               className="text-gray-400 hover:text-yellow-400 transition duration-300 hover:underline hover:underline-offset-4"
@@ -54,9 +60,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center md:items-start space-y-6">
-          <h3 className="text-gold text-xl font-semibold">Contact Us</h3>
-          <p className="text-gray-400 text-sm">
+        <div className="flex flex-col items-center md:items-start space-y-10">
+          <h3 className="text-gold text-lg md:text-xl font-semibold">Contact Us</h3>
+          <p className="text-gray-400 text-sm text-center md:text-center">
             Email:{" "}
             <a
               href="mailto:oguzhandogandev@hotmail.com"
@@ -156,14 +162,16 @@ const Footer = () => {
           <h3 className="text-xl text-gold font-semibold mb-4">
             Subscribe to Our Newsletter
           </h3>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="px-4 py-2 rounded-lg text-gray-800"
-          />
-          <button className="ml-4 bg-yellow-400 text-gray-900 px-6 py-2 rounded-lg hover:bg-yellow-500">
-            Subscribe
-          </button>
+          <div className="flex flex-col items-center justify-center gap-3">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-2 rounded-lg text-gray-800"
+            />
+            <button className=" bg-yellow-400 text-gray-900 px-6 py-2 rounded-lg hover:bg-yellow-500">
+              Subscribe
+            </button>
+          </div>
         </div>
       </div>
     </footer>

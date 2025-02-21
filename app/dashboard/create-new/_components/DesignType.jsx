@@ -42,13 +42,13 @@ function DesignType({ selectedDesignType }) {
       <label className="text-slate-400 font-semibold">
         Interior Design Type*
       </label>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-5 mt-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 mt-5">
         {Designs.map((design, index) => (
           <div
             key={index}
             onClick={() => {setSelectedDesign(design.name), selectedDesignType(design.name)}}
           >
-            <span className="flex justify-center mb-3">{design.name}</span>
+            <span className="flex justify-start mb-3">{design.name}</span>
             <Image
               src={design.image}
               alt={design.name}

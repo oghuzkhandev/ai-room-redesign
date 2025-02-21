@@ -19,7 +19,7 @@ function Header() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
 
   return (
-    <div className="flex justify-between items-center p-5 shadow-xl max-h-[110px]">
+    <div className="flex flex-col lg:flex-row justify-between items-center shadow-xl h-[300px] lg:h-[120px]">
       <div className="flex items-center gap-4">
         <a href="/dashboard">
           <Image
@@ -27,13 +27,15 @@ function Header() {
             alt="logo"
             width={140}
             height={140}
-            className="object-cover"
+            className="object-cover lg:hidden xl:flex"
           />
         </a>
-        <h2 className="font-bold text-lg">AI Room Design Application</h2>
+        <h2 className="font-bold text-center text-xl lg:hidden xl:flex">
+          AI Room Design
+        </h2>
       </div>
 
-      <nav className="hidden md:flex items-center gap-10 text-black font-bold dark:text-gray-300">
+      <nav className="flex items-center gap-20 lg:gap-5 xl:gap-10 text-black font-bold dark:text-gray-300">
         <Link
           href="/dashboard"
           className="relative group text-lg font-semibold transition duration-300 ease-in-out hover:text-yellow-400"
@@ -79,10 +81,10 @@ function Header() {
         </Link>
       </nav>
 
-      <div className="flex items-center gap-[30px]">
+      <div className="flex items-center lg:gap-5 xl:gap-10 sm:gap-10 p-4 lg:p-0">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="w-[120px]">
+            <Button variant="outline" className="w-[120px] ">
               <Image src="/user.png" alt="rate" width={25} height={30} />
               <span className="text-[16px] font-semibold">Account</span>
             </Button>
@@ -149,7 +151,9 @@ function Header() {
             )}
           </div>
         </div>
-        <UserButton />
+        <div className="mr-5">
+          <UserButton />
+        </div>
       </div>
     </div>
   );

@@ -137,7 +137,7 @@ function MyProjects() {
       </h1>
 
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 mt-20">
           {[...Array(9)].map((_, index) => (
             <Skeleton key={index} className="w-full h-[200px] rounded-lg" />
           ))}
@@ -145,13 +145,13 @@ function MyProjects() {
       ) : projects.length === 0 ? (
         <p>You have not created any rooms yet.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 mt-20">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-slate-50 rounded-lg shadow-xl shadow-gray-500 p-3"
+              className="bg-slate-50 rounded-lg shadow-xl shadow-gray-500 p-2 mb-20"
             >
-              <div className="relative cursor-pointer">
+              <div className=" relative cursor-pointer">
                 <ReactBeforeSliderComponent
                   firstImage={{ imageUrl: project?.aiImage }}
                   secondImage={{ imageUrl: project?.orgImage }}

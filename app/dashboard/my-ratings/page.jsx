@@ -55,9 +55,9 @@ function MyRatingsList() {
       {ratings.length === 0 ? (
         <p>You have not rated any rooms yet.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 mt-20">
           {ratings.map((rating, index) => (
-            <div key={index} className="bg-white rounded-md shadow-lg">
+            <div key={index} className="bg-slate-50 rounded-lg shadow-xl shadow-gray-500 p-2 mb-20">
               <ReactBeforeSliderComponent
                 firstImage={{ imageUrl: rating.aiImage }}
                 secondImage={{ imageUrl: rating.orgImage }}
