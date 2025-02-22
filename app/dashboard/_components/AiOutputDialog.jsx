@@ -19,18 +19,23 @@ export function AiOutputDialog({ openDialog, closeDialog, aiImage, orgImage }) {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            It's all done. Here is your new room made according to your wishes.
-            Have fun{" "}
+            It's all done. Here is your new room made according to your wishes. Have fun!
           </AlertDialogTitle>
-          <ReactBeforeSliderComponent
-            firstImage={{
-              imageUrl: aiImage,
-            }}
-            secondImage={{
-              imageUrl: orgImage,
-            }}
-          />
-          <Button onClick={() => closeDialog(false)}>Close</Button>
+          <div className>
+            <ReactBeforeSliderComponent
+              firstImage={{
+                imageUrl: aiImage,
+              }}
+              secondImage={{
+                imageUrl: orgImage,
+              }}
+            />
+          </div>
+          <div className="flex justify-center mt-4">
+            <Button onClick={() => closeDialog(false)}>
+              Close
+            </Button>
+          </div>
         </AlertDialogHeader>
       </AlertDialogContent>
     </AlertDialog>

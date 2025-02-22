@@ -103,11 +103,11 @@ function Listing() {
             Ready to design your dream space?
           </p>
         </div>
-        <Link href={"/dashboard/create-new"}>
+        {/* <Link href={"/dashboard/create-new"}>
           <Button variant="secondary" className="text-black font-bold text-md">
             ReDesign Your Room
           </Button>
-        </Link>
+        </Link> */}
       </div>
       <div className="w-full flex flex-col items-center justify-center">
         <h3 className="text-center text-3xl font-bold text-gray-600 underline underline-offset-8 mt-20">
