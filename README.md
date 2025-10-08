@@ -1,40 +1,87 @@
-<<<<<<< HEAD
-# ai-room-redesign
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏡 AI Room Designer — AI Interior Design Generator  
 
-## Getting Started
+**AI Room Designer** is a full-stack web application that uses **Artificial Intelligence** to reimagine and redesign real interior spaces.  
+Simply upload a photo of your room, select a design style, room type, and describe any custom preferences — the AI will generate a **brand new version** of your room in seconds.  
 
-First, run the development server:
+This project combines **AI creativity**, **modern frontend engineering**, and **SaaS architecture** to deliver a smooth, scalable, and visually stunning user experience.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🧠 AI-Powered Room Transformation  
+- Upload a real photo of your room (living room, bedroom, kitchen, etc.)  
+- Choose a design style like **Bohemian**, **Minimalist**, **Modern**, or **Scandinavian**  
+- Add custom preferences — e.g. `brown sofa`, `fireplace`, `bigger windows`, `warm lighting`  
+- Generates a fully redesigned version using **ReplicateAI** and **OpenAI Image APIs**  
+- View transformations in an interactive **Before / After** comparison view  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### 💳 Plans, Credits & Memberships  
+- Multiple user plans (Free / Pro / Premium) with active membership logic  
+- **Credit-based usage system** for AI generations  
+- Integrated **Stripe Billing API** for payments and renewals  
+- Automatic plan validation and real-time credit tracking  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ❤️ User Engagement & Personalization  
+- Save your favorite designs and rate generated results  
+- Revisit your previous projects through the **My Projects** page  
+- Personalized dashboard showing design history, credits, and activity  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### ☁️ Cloud & Storage Architecture  
+- **Firebase** for real-time data sync and secure image storage  
+- Combined with **PostgreSQL + DrizzleORM** for user, plan, and rating data  
+- Optimized upload pipeline with progress tracking and caching  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> development
+## ⚙️ Tech Stack  
+
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | Next.js 14 (App Router), TypeScript |
+| **Styling** | Tailwind CSS |
+| **AI Layer** | ReplicateAI, OpenAI Image API |
+| **Database** | PostgreSQL + DrizzleORM |
+| **Storage** | Firebase |
+| **Payments** | Stripe |
+| **Deployment** | Vercel |
+
+---
+
+## 🧩 Architecture Highlights  
+- **Modular architecture:** Clean separation between UI, API routes, and database logic  
+- **Serverless backend:** Deployed on Vercel for instant scaling and minimal latency  
+- **Responsive UI:** Optimized for all screen sizes  
+- **Async AI workflows:** Efficient API calls with image caching and error handling  
+- **Production-ready SaaS:** Full integration of payments, memberships, and credits  
+
+---
+
+## 📸 Demo Preview (Coming Soon)  
+
+> **Upload → Choose Style → Customize → Generate → Compare**  
+> Experience the power of **AI-driven interior design**.  
+
+---
+
+## 👨‍💻 Developer  
+
+**Oguzhan Dogan**  
+- 🌐 [oguzhandogan.com](https://oguzhandogan.com)  
+- 💼 [LinkedIn](https://linkedin.com/in/oguzhandogandev)  
+- 💻 [GitHub](https://github.com/oghuzkhandev)  
+
+---
+
+## 🧭 Vision  
+
+**AI Room Designer** aims to make interior design accessible, interactive, and powered by AI.  
+No expensive tools or design skills needed — just upload a photo, describe your vision, and watch your room transform.  
+
+---
